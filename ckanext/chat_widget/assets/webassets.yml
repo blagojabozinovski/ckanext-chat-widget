@@ -1,0 +1,14 @@
+# chat_widget-js:
+#   filter: rjsmin
+#   output: ckanext-chat_widget/%(version)s-chat_widget.js
+#   contents:
+#     - js/chat_widget.js
+#   extra:
+#     preload:
+#       - base/main
+
+# chat_widget-css:
+#   filter: cssrewrite
+#   output: ckanext-chat_widget/%(version)s-chat_widget.css
+#   contents:
+#     - css/chat_widget.css
