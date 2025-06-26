@@ -1,24 +1,19 @@
 {% ckan_extends %}
+{% import 'macros/form.html' as form %}
 
 {% block main_content %}
 {{ super() }}
 
-
 <!-- Chat Button -->
 <button class="chat-button" onclick="toggleChat()">💬</button>
 
-<!-- Chat Box -->
+<!-- Chat Box with iframe -->
 <div class="chat-box" id="chatBox">
-  <div class="chat-header">Chat with us</div>
-  <div class="chat-messages" id="chatMessages"></div>
-  <div class="chat-input">
-    <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="handleKey(event)">
-    <button onclick="sendMessage()">Send</button>
+  <div class="chat-header">
+    WHO Afro AI chat
+    <button class="close-button" onclick="toggleChat()">✖</button>
   </div>
+  <iframe class="chat-iframe" src="http://localhost:5000/chat"></iframe>
 </div>
-
-<script>
-
-</script>
 
 {% endblock %}
