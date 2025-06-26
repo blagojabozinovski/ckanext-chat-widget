@@ -3,92 +3,6 @@
 {% block main_content %}
 {{ super() }}
 
-  <style>
-    /* Chat button */
-    .chat-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #007bff;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      font-size: 28px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 1000;
-    }
-
-    /* Chat box */
-    .chat-box {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      width: 300px;
-      max-height: 400px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-      z-index: 1000;
-    }
-
-    .chat-header {
-      background: #007bff;
-      color: white;
-      padding: 12px;
-      font-weight: bold;
-    }
-
-    .chat-messages {
-      flex: 1;
-      padding: 10px;
-      overflow-y: auto;
-      font-size: 14px;
-      border-top: 1px solid #eee;
-      border-bottom: 1px solid #eee;
-    }
-
-    .chat-input {
-      display: flex;
-      padding: 8px;
-    }
-
-    .chat-input input {
-      flex: 1;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .chat-input button {
-      margin-left: 8px;
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .chat-message {
-      margin-bottom: 8px;
-    }
-
-    .chat-message.user {
-      text-align: right;
-    }
-
-    .chat-message.bot {
-      text-align: left;
-    }
-  </style>
-
-
 
 <!-- Chat Button -->
 <button class="chat-button" onclick="toggleChat()">💬</button>
@@ -104,42 +18,7 @@
 </div>
 
 <script>
-  function toggleChat() {
-    const chatBox = document.getElementById('chatBox');
-    chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
-  }
 
-  function handleKey(e) {
-    if (e.key === 'Enter') sendMessage();
-  }
-
-  function sendMessage() {
-    const input = document.getElementById('chatInput');
-    const messages = document.getElementById('chatMessages');
-    const text = input.value.trim();
-    if (!text) return;
-
-    // Append user's message
-    const userMsg = document.createElement('div');
-    userMsg.className = 'chat-message user';
-    userMsg.textContent = text;
-    messages.appendChild(userMsg);
-
-    // Scroll to bottom
-    messages.scrollTop = messages.scrollHeight;
-
-    // Clear input
-    input.value = '';
-
-    // Simulate bot response
-    setTimeout(() => {
-      const botMsg = document.createElement('div');
-      botMsg.className = 'chat-message bot';
-      botMsg.textContent = "Echo: " + text; // Replace this with API call if needed
-      messages.appendChild(botMsg);
-      messages.scrollTop = messages.scrollHeight;
-    }, 500);
-  }
 </script>
 
 {% endblock %}
