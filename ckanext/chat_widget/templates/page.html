@@ -7,13 +7,15 @@
 <!-- Chat Button -->
 <button class="chat-button" onclick="toggleChat()">💬</button>
 
-<!-- Chat Box with iframe -->
+<!-- Chat Box with shifted iframe -->
 <div class="chat-box" id="chatBox">
   <div class="chat-header">
-    WHO Afro AI chat
+    WHO Africa Data
     <button class="close-button" onclick="toggleChat()">✖</button>
   </div>
-  <iframe class="chat-iframe" src="http://localhost:5000/chat"></iframe>
+  <div class="iframe-wrapper">
+    <iframe class="chat-iframe" src="http://localhost:5000/chat"></iframe>
+  </div>
 </div>
 
 {% endblock %}

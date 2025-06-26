@@ -47,11 +47,19 @@
   cursor: pointer;
 }
 
-.chat-iframe {
+.iframe-wrapper {
+  position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+}
+
+.chat-iframe {
+  width: 100%;
+  height: calc(100% + 330px); /* bigger than visible area */
   border: none;
-  flex: 1;
+  transform: translateY(-330px);
+  pointer-events: auto;
 }
 
 @media (max-width: 768px) {
