@@ -4,18 +4,21 @@
 {% block main_content %}
 {{ super() }}
   {% if c.userobj %}
-    <!-- Chat Button -->
-    <button class="chat-button" onclick="toggleChat()">💬</button>
+<!-- Chat Button -->
+  <button class="chat-button" onclick="toggleChat()">💬</button>
 
-    <!-- Chat Box with shifted iframe -->
-    <div class="chat-box" id="chatBox">
-      <div class="chat-header">
-        WHO Afro AI Chat
-        <button class="close-button" onclick="toggleChat()">✖</button>
-      </div>
-      <div class="iframe-wrapper">
-        <iframe class="chat-iframe" src="http://localhost:5000/chat"></iframe>
+  <!-- Chat Box -->
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header">
+      WHO Afro AI Chat 
+      <div class="chat-header-buttons">
+        <a href="/chat" class="header-button" title="Full Screen">⛶</a>
+        <button class="header-button" onclick="toggleChat()" title="Close">✖</button>
       </div>
     </div>
+    <div class="iframe-wrapper">
+      <iframe class="chat-iframe" src="http://localhost:5000/chat"></iframe>
+    </div>
+  </div>
   {% endif %}
 {% endblock %}
