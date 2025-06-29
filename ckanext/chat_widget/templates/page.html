@@ -3,7 +3,7 @@
 
 {% block main_content %}
 {{ super() }}
-  {% if c.userobj %}
+  {% if c.userobj and request.path != "/chat" %}
 <!-- Chat Button -->
   <button title="Ask AI" class="chat-button" onclick="toggleChat()">💬</button>
 
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="iframe-wrapper">
-      <iframe class="chat-iframe" src="http://localhost:5000/chat"></iframe>
+      <iframe class="chat-iframe" src="{{ h.chat_url() }}"></iframe>
     </div>
   </div>
   {% endif %}
